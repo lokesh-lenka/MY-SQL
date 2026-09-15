@@ -1,0 +1,156 @@
+SQL
+----------
+structured query language is standardized programming language specially designed for managing and manipulating relational databases. it provides declarative syntax that allows users to define data they want retrieve, insert, update or delete without specifying exactly how database should execute these operations.
+
+
+SQL Commands
+==============
+DDL :- data definition language --> defines and modifies structure of a database objects (tables ,schemas,indexes)
+
+1)CREATE
+---------
+database creation
+------------------
+syntax
+--------
+CREATE DATABASE DATABASE_NAME;
+CREATE SCHEMA SCHEMA_NAME;
+
+2)CREATE TABLE
+---------------
+syntax
+----------
+CREATE TABLE TABLE_NAME(
+Column -name Datatype(size) constraint,
+column -name database(size) contain,
+-------------
+-------------
+column-n datatype(size)
+);
+
+
+ALTER
+---------
+modify the existing table structure
+
+DROP
+------
+IT DROPS THE ENTIRE TABLE AND STRUCTURE
+
+TRUNCATE
+-----------
+TO DELETE ALL RECORDS PRESENT IN TABLE
+
+
+RENAME
+-------
+-->Renames an existing database object, such as a table or column, to a new name without changing its structure or data.
+
+To rename table --> ALTER TABLE OLD_TABLE_NAME RENAME TO NEW_TABLE_NAME;
+
+To rename column --> ALTER TABLE TABLE_NAME CHANGE COLUMN OLD_NAME NEW_NAME DATATYPE(SIZE);
+
+
+
+
+DML :- data manipulation language --> manages data stored within database objects (insert,update,delete)
+
+1)INSERT
+
+approach
+-----------
+Syntax
+--------
+INSERT INTO Table-name(column-name1,column-name-2......column-n)
+values
+(value1,value2,.....value-n);
+
+example
+----------
+INSERT INTO EMPLOYEES
+(EMPID,FIRSTNAME,LASTNAME,AGE,DOJ,ADDRESS,DEPT)
+VALUES
+('E001','LENKA','LOKESH',22,'2026-08-23','VIZAG','STUDENT')
+
+
+2)UPDATE
+---------
+
+SYNTAX:
+--------
+UPDATE TABLE-NAME SET COLUMN-NAME=VALUE WHERE CONDITION
+
+eg:
+---
+UPDATE EMPLOYEES SET LAST_NAME ='BBB' WHERE EMPID = 'EMPO3'
+
+3)DELETE
+-----------
+BASED ON SOME CONDITION DELETE THIS RECORDS
+
+eg:
+========
+DELETE FROM EMPLOYEES WHERE LAST_NAME= 'KONDA';
+
+
+SYNTAX:
+-----------
+DELETE FROM TABLE-NAME WHERE CONDITION;
+
+DROP VS DELETE VS TRUNCATE
+===========================
+
+DELETE : DELETE THE RECORDS BASED ON SOME CODITIONS
+
+TRUNCATE: DELETE ALL RECORDS PRESENT IN THE TABLE WITHOUT DELETE THE STRUCTURE.
+
+DROP : DELETES ENTIRE TABLE ALONG WITH STRUCTURE.
+
+
+DQL :- data query language:-used to fetch/retrieve data from database.
+
+SELECT
+----------
+-->Retrieves data from one or more tables or views based on specified columns and conditions. It is the most frequently used SQL command.
+
+SYNTAX --> SELECT * FROM TABLE_NAME;
+
+EXAMPLE --> SELECT * FROM EMPLOYEES;
+
+USER CREATION:
+--------------
+SYNTAX --> CREATE USER 'USERNAME' IDENTIFIED BY 'PASSWORD'
+EXAMPLE --> CREATE USER 'lokesh' IDENTIFIED BY 'lokesh@2003'
+
+
+TCL :- Transaction Control Language --> manage transactions to maintain data intigrity
+---------
+COMMIT
+ROLLBACK
+SAVEPOINT
+
+DCL :- Data Control Language -->manage permissions and access controll on database objects.
+--------
+GRANT
+-------
+-->Gives specific privileges or permissions (such as SELECT, INSERT, UPDATE, DELETE) to a database user or role.
+
+SYNTAX FOR SPECIFIC PRIVILEGES --> GRANT PRIVILEGE_NAME1,PRIVILEGE_NAME2,..PRIVILEGE_NAMEN ON TABLE_NAME TO USERNAME;
+EXAMPLE -->GRANT SELECT,ALTER,UPDATE,DELETE ON STUDENTS TO 'SUNNY';
+
+SYNTAX FOR ALL PRIVILEGES --> GRANT ALL PRIVILEGES ON TABLE_NAME TO USERNAME;
+EXAMPLE -->GRANT ALL PRIVILEGES ON STUDENTS TO 'SUNNY';
+
+
+REVOKE
+---------
+-->Removes previously granted privileges or permissions from a database user or role, restricting their access to database objects.
+
+SYNTAX FOR SPECIFIC PRIVILEGES --> REVOKE PRIVILEGE_NAME1,PRIVILEGE_NAME2,..PRIVILEGE_NAMEN ON TABLE_NAME FROM USERNAME;
+EXAMPLE -->REVOKE SELECT,ALTER,UPDATE,DELETE ON STUDENTS FROM 'SUNNY';
+
+SYNTAX FOR ALL PRIVILEGES --> REVOKE ALL PRIVILEGES ON TABLE_NAME FROM USERNAME;
+EXAMPLE -->REVOKE ALL PRIVILEGES ON STUDENTS FROM 'SUNNY';
+
+
+
